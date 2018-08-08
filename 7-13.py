@@ -359,10 +359,25 @@ def decryptSecret(blocksize, data, key):
 # print(secret.decode('ascii'))
 
 
+def parseDict(s):
+    data = s.replace('&', '=').split('=')
+    if len(data) % 2 != 0:
+        raise Exception('Invalid parsing')
+    ans = {}
+    for i in range(0, len(data), 2):
+        ans[data[i]] = data[i+1]
+    return ans
+
+# parsed = parseDict('foo=bar&baz=qux&zap=zazzle')
+# print(parsed)
+
+def profile_for(email):
+    return "email=" + email + "&uid=10&role=user"
+
+# print(profile_for('foo@bar.com', '10', 'user'))
 
 
-
-
+# c14
 
 
 
